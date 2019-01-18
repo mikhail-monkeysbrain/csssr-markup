@@ -1,0 +1,23 @@
+.input__checkbox--wrapper
+  h2
+    | Расскажите о себе чекбоксами
+  p
+    | Отметьте чекбоксами пункты, которые соответствуют вашим скиллам. Кстати, отсутствие опыта не означает, что у вас меньше шансов стать одним из наших товарищей. Это означает, что вы будете получать те задачи, с которыми гарантировано будете справляться.
+  .input__checkbox--table
+    mixin input__checkbox(data)
+      - data = data || {}
+      label.input--field__checkbox
+        if data.checked == 'checked'
+          input(type="checkbox" name= data.name checked= data.checked).input__checkbox
+        else
+          input(type="checkbox" name= data.name ).input__checkbox
+        if !data.link
+          p.input--field--heading__checkbox= data.description
+        else
+          p.input--field--heading__checkbox= data.description
+            a(href= data.link)
+              = data.link_text
+        
+
+    each item in [{checked: 'checked', description: 'БЭМ/OOCSS', name: 'BEM/OOCSS'},{checked: 'checked', description: 'Pug (Jade)', name: 'Pug (Jade)'},{checked: 'checked', description: 'Stylus/LESS/SASS', name: 'Stylus/LESS/SASS'},{checked: 'checked', description: 'Работаю с SVG', name: 'SVG'},{checked: 'checked', description: 'Верстаю семантично', name: 'semantic'},{checked: 'checked', description: 'Accessibility (A11Y)', name: 'Accessibility'},{checked: 'checked', description: 'ES2015/ES2016', name: 'ES2015/ES2016'},{checked: 'checked', description: 'Gulp/GRUNT', name: 'Gulp/GRUNT'},{checked: 'checked', description: 'Webpack', name: 'Webpack'},{checked: 'checked', description: 'Дружу с WebGL', name: 'WebGL'},{checked: 'checked', description: 'jQuery', name: 'jQuery'},{checked: '', description: 'Знаю/изучаю Angular', name: 'Angular'},{checked: '', description: 'Знаю/изучаю React', name: 'React'},{checked: '', description: 'Знаю/изучаю Node.js', name: 'Node.js'},{checked: 'checked', description: 'Использую Git', name: 'Git'},{checked: 'checked', description: 'С глазомером всё ок', name: 'eye'},{checked: '', link: 'http://blog.csssr.ru', link_text: 'blog.csssr.ru', description: 'Читаю ', name: 'blog.csssr.ru'},{checked: '', description: 'Я ленивый(-ая)', name: 'lazy'},{checked: '', description: 'У меня хороший английский', name: 'English'}]
+      +input__checkbox(item)

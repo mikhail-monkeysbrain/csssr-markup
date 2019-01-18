@@ -1,0 +1,272 @@
+.input
+  
+  &--field
+    width 100%
+    &__checkbox
+      display flex
+      width 33.8%
+      padding-bottom 1rem
+
+    &--heading
+      flex-shrink: 0
+      padding-right 1.9rem
+      margin .65rem 0
+      color $heading
+      font-size 2.2rem
+      font-weight 700
+      line-height 4.983rem
+      &__checkbox
+        color #000000
+        font-size 2.1rem
+        font-weight 700
+        line-height 2.5rem
+        position relative
+        padding-left 2.8rem
+        &::before
+          position absolute
+          left 0
+          top .5rem
+          content ''
+          width 1.9rem
+          height 1.8rem
+          background url(../img/check.png) center no-repeat
+          background-size cover
+        &::after
+          position absolute
+          left -.3rem
+          top -.4rem
+          content ''
+          width 3.2rem
+          height 2.5rem
+          background url(../img/check__checked.png) center no-repeat
+          background-size contain
+          opacity 0
+          transition: $fast
+
+    &__text
+      width 100%
+      display flex
+
+  &__text
+    color $text
+    font-family 'Courier'
+    font-size 3rem
+    font-weight 400
+    line-height 3.6rem
+    padding 0 1.6rem
+    height 5rem
+    width 100%
+    border: 0
+    outline: 0
+    background-color transparent
+    background url(../img/texture.png) left bottom repeat-x
+    flex-grow: 0
+    position relative
+    top -0.6rem
+    &--wrapper
+      padding-top 5.4rem
+
+  &__checkbox
+    display none
+    &:checked
+      & + .input--field--heading__checkbox
+        &::before
+          background url(../img/check.png) center no-repeat
+          background-size cover
+        &::after
+          opacity 1
+    &--wrapper
+      padding-top 3.6rem
+    &--table
+      display flex
+      flex-direction: column
+      flex-wrap: wrap
+      height 28.2rem
+      padding-top 2.5rem
+    &--wrapper
+      padding-top 3.7rem
+  &__range
+    height 0.3rem
+    background url("../img/texture.png") left bottom repeat-x
+    position relative
+    padding-top 3.5rem
+    width 76.8rem
+    left .2rem
+    &--wrapper
+      padding 2.5rem 0
+    &--line
+      &:first-child
+        width .3rem
+        height 2.5rem
+        background $heading
+        position absolute
+        top 3.3rem
+        left 0
+        &::after
+          content 'Не владею'
+          color $heading
+          font-size 1.3rem
+          font-weight 700
+          line-height 1.8rem
+          position absolute
+          left -.1
+          bottom -3.1rem
+          width 7rem
+      &:nth-child(2)
+        width .3rem
+        height 1.1rem
+        background $heading
+        position absolute
+        top 3.3rem
+        left 14.8rem
+        &::after
+          content 'Использую готовые решения'
+          color $heading
+          font-size 1.3rem
+          font-weight 700
+          line-height 1.8rem
+          position absolute
+          bottom -4.3rem
+          left -0.5rem
+          width 18rem
+      &:nth-child(3)
+        width .3rem
+        height 1.1rem
+        background $heading
+        position absolute
+        top 3.3rem
+        left 37.3rem
+        &::after
+          content 'Использую готовые решения и умею их переделывать'
+          color $heading
+          font-size 1.3rem
+          font-weight 700
+          line-height 1.8rem
+          position absolute
+          bottom -5.2rem
+          left -0.3rem
+          width 17rem
+      &:nth-child(4)
+        width .3rem
+        height 2.5rem
+        background $heading
+        position absolute
+        top 3.3rem
+        right 0
+        &::after
+          content 'Пишу сложный JS с нуля'
+          color $heading
+          font-size 1.3rem
+          font-weight 700
+          line-height 1.8rem
+          position absolute
+          bottom -3.6rem
+          right -0.1rem
+          width 14rem
+
+    .ui-slider-handle
+      width 1.7rem
+      height 1.4rem
+      display block
+      background url("../img/arrow.png") left bottom repeat-x
+      background-size contain
+      z-index 2
+      position absolute
+      outline: none
+      margin-left -0.9rem
+      top 1.5rem
+  &__radio
+    display none
+    &:checked
+      & + .input__radio--heading
+        &::after
+          opacity 1
+
+    &--wrapper
+      padding-top 3.5rem
+    &--container
+      display flex
+    &--label
+      cursor pointer
+      margin-right: 2rem
+      padding-left: 3.4rem
+      padding-top: 1.5rem
+    &--heading
+      color #000000
+      font-size 2rem
+      font-weight 700
+      line-height 2.5rem
+      position relative
+      &::before
+        content: ''
+        display block
+        position absolute
+        left -3.5rem
+        top -.2rem
+        width 2.8rem
+        height 2.8rem
+        background url(../img/radio.png) center no-repeat
+        background-size cover
+      &::after
+        content: ''
+        display block
+        position absolute
+        left -2.8rem
+        top .5rem
+        width 1.4rem
+        height 1.4rem
+        background url(../img/radio__select.png) center no-repeat
+        background-size cover
+        transition: $fast
+        opacity 0
+  &__date
+    @extend .input__text
+    width 20.6rem
+    padding 0
+    height 3.5rem
+    top 0
+    padding-left: 1.1rem
+    padding-bottom: 1.1rem
+
+.multiinput
+  @extend .input__text
+  height 6rem
+  padding-left 0
+  padding-top 2rem
+  &--wrapper
+    padding-top 5.7rem
+  &--description
+    margin-bottom 2rem
+
+
+input
+	font-size 3rem
+
+.inputHidden
+  font-size 3rem
+  display inline-block
+  visibility hidden
+  position absolute
+  left 0
+  top 0
+  z-index -1
+  font-family 'Courier'
+
+.multiinput--container
+  position relative
+  display flex
+  flex-direction column
+  width: 76.7rem
+  left: 0.3rem
+
+.date
+  padding-top 8.5rem
+  padding-bottom 7.5rem
+  &--container
+    display flex
+  &--heading
+    color $heading
+    font-size 2.2rem
+    font-weight 700
+    line-height 4.983rem
+    margin-right 1.8rem

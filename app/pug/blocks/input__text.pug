@@ -1,0 +1,9 @@
+.input__text--wrapper
+  mixin input__text(data)
+    - data = data || {}
+    label.input--field__text
+      p.input--field--heading= data.description
+      input(type="text" name= data.name value= data.value).input__text
+
+  each item in [{description: 'Полное ФИО', value: 'Столповских Михаил Александрович', name: 'name'}, {description: 'Год Рождения', value: '1992', name: 'name'}, {description: 'Место жительства', value: 'г. Магнитогорск, Россия', name: 'place'}, {description: 'Скайп', value: 'monkeysbrain', name: 'skype'}, {description: 'Почта', value: 'monkeysbrain@yandex.ru', name: 'skype'}]
+    +input__text(item)
